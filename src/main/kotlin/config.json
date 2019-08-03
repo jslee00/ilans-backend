@@ -9,8 +9,8 @@
   "warnLimitCount": 150,
   "errorCsvFileName": "Error_CSV.csv",
   "warnCsvFileName" : "Warn_CSV.csv",
-  "outlookhost" : "http://192.168.30.111",
-  "outlookport" : 445,
-  "outlookuser" : "ujkim",
-  "outlookpass" : "1234"
+  "outlookHost" : "",
+  "outlookPort" : ,
+  "outlookUser" : "ujkim@satreci.com",
+  "outlookPass" : ""
 }
