@@ -3,10 +3,17 @@ package ilans.logdata
 import java.util.*
 
 class LogData {
-    val managerName: String = "" // Manager person's name
-    val managerEmail: String = "" // Manager's Email Address, this is made for notification
-    val logType: String = "" // Error, Warning, Normal
-    val logMessage: String = ""
+    var managerName: String = "" // Manager person's name
+    var managerEmail: String = "" // Manager's Email Address, this is made for notification
+    var logType: String = "" // Error, Warning, Normal
+    var logMessage: String = ""
+
+    constructor(managerName:String, managerEmail:String, logType:String, logMessage:String) {
+        this.managerName = managerName
+        this.managerEmail = managerEmail
+        this.logType = logType
+        this.logMessage = logMessage
+    }
 }
 
 // Singletone of LogQueue (static define)
