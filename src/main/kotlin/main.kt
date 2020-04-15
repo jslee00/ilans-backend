@@ -1,11 +1,12 @@
-import ilans.analyzer.MainAnalyzer
-import ilans.configmanager.ConfigManager
+import Common.JsonConfigImpl
+import Receiver.KafkaReceiverImpl
+import Service.MainService
 
 fun main(args: Array<String>) {
-    val configInstance = ConfigManager("config.json").getInstanceOfConfig()
-    configInstance?.accessTopicList?.forEach { topic -> println(topic)}
-    val mainhander = MainEventHandler()
-    mainhander.pollingTopics()
-    val mainAnalyzer = MainAnalyzer()
-    mainAnalyzer.run() // Thread Execution
+    val jsonConfig = JsonConfigImpl("config.json").getConfigInstance()
+    val receiver = KafkaReceiverImpl(jsonConfig)
+    receiver.popLogData()
+    // TODO EMAIL Sender 구현 + 테스트 필요
+    val mainService = MainService(jsonConfig)
+    mainService.run()
 }

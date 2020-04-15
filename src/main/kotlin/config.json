@@ -1,16 +1,9 @@
 {
-  "kafkaServerIP": "192.168.0.11",
-  "kafkaServerPort": 9092,
+  "kafkaIP": "IP",
+  "kafkaPort": PORT,
   "kafkaGroupId": "log-processor",
-  "accessTopicList": [
-      "log"
+  "topicList": [
+    "logs"
   ],
-  "errorLimitCount": 100,
-  "warnLimitCount": 150,
-  "errorCsvFileName": "Error_CSV.csv",
-  "warnCsvFileName" : "Warn_CSV.csv",
-  "outlookHost" : "mail_address",
-  "outlookPort" : 25,
-  "outlookUser" : "mail_name",
-  "outlookPass" : "mail_pass"
+  "errorLimitCnt": 100
 }
