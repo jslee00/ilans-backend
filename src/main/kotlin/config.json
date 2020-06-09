@@ -1,9 +1,17 @@
 {
-  "kafkaIP": "IP",
-  "kafkaPort": PORT,
+  "kafkaIP": "192.168.99.100",
+  "kafkaPort": 9092,
   "kafkaGroupId": "log-processor",
   "topicList": [
     "logs"
   ],
-  "errorLimitCnt": 100
+  "errorLimitCnt": 100,
+  "emergencyServiceNameList": [
+    "ICPS", "CMDPS"
+  ],
+  "errorCsvFileName": "Error_CSV.csv",
+  "mailHost" : "mail_address",
+  "mailPort" : 25,
+  "mailId" : "mail_name",
+  "mailPw" : "mail_pass"
 }

@@ -1,9 +1,9 @@
-package Receiver
+package ilans.receiver
 
-import Common.JsonConfigImpl
-import Object.LogData
-import Object.LogQueue
-import Object.LogType
+import ilans.common.JsonConfigImpl
+import ilans.`object`.LogData
+import ilans.`object`.LogQueue
+import ilans.`object`.LogType
 import org.apache.kafka.clients.consumer.Consumer
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.common.serialization.StringDeserializer
@@ -18,7 +18,7 @@ interface EventReceiver<T> {
 }
 
 class KafkaReceiverImpl(jsonConfig: JsonConfigImpl?) : EventReceiver<Consumer<String, String>> {
-    val jsonConfig = JsonConfigImpl("config.json").getConfigInstance()
+    val jsonConfig = jsonConfig
 
     override fun createReceiver(): Consumer<String, String> {
         val props = Properties()
@@ -32,14 +32,14 @@ class KafkaReceiverImpl(jsonConfig: JsonConfigImpl?) : EventReceiver<Consumer<St
     override fun popLogData() {
         val receiver = createReceiver()
         receiver.subscribe(jsonConfig?.topicList)
-        while(true) {
-            val records = receiver.poll(Duration.ofSeconds(1))
-            records.iterator().forEach {
-                val logStr = it.value()
-                val logObject = JsonConfigImpl.jsonMapper.readValue(logStr, LogData::class.java)
-                pushLogData(logObject)
-            }
+//        while(true) {
+        val records = receiver.poll(Duration.ofSeconds(1))
+        records.iterator().forEach {
+            val logStr = it.value()
+            val logObject = JsonConfigImpl.jsonMapper.readValue(logStr, LogData::class.java)
+            pushLogData(logObject)
         }
+//        }
     }
 
     override fun pushLogData(logdata: LogData?) {

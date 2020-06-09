@@ -1,4 +1,4 @@
-package Common
+package ilans.common
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
@@ -21,6 +21,12 @@ class JsonConfigImpl(configName: String) : ConfigManager {
     var kafkaGroupId: String? = ""
     var topicList: List<String>? = null
     var errorLimitCnt: Int? = 0
+    var emergencyServiceNameList: List<String>? = null
+    var errorCsvFileName: String? = ""
+    var mailHost: String? = ""
+    var mailPort: Int? = 0
+    var mailId: String? = ""
+    var mailPw: String? = ""
 
     companion object {
         val jsonMapper = ObjectMapper().apply {
@@ -40,5 +46,4 @@ class JsonConfigImpl(configName: String) : ConfigManager {
     }
 
     fun getKafkaIP(): Any? { return this.kafkaIP }
-
 }
