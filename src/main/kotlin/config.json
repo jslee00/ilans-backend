@@ -1,5 +1,5 @@
 {
-  "kafkaIP": "192.168.99.100",
+  "kafkaIP": "192.168.99.105",
   "kafkaPort": 9092,
   "kafkaGroupId": "log-processor",
   "topicList": [
